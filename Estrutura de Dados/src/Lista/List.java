@@ -5,9 +5,11 @@ public class List<T> {
 
     // class structure of the node
     private class Node {
-        T data;
-        Node next;
 
+        //given to generic T type
+        T data;
+        //node type
+        Node next;
         Node(T data) {
             this.data = data;
             this.next = null;
@@ -44,16 +46,13 @@ public class List<T> {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
         }
-
         if (index == 0) {
             Node newNode = new Node(data);
             newNode.next = first;
             first = newNode;
-
             if (size == 0) {
                 last = newNode;
             }
-
         } else {
             Node newNode = new Node(data);
             Node before = getNode(index - 1);
@@ -68,10 +67,8 @@ public class List<T> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
         }
-
         if (index == 0) {
             first = first.next;
-
             if (first == null) {
                 last = null;
             }
@@ -79,7 +76,6 @@ public class List<T> {
         } else {
             Node before = getNode(index - 1);
             before.next = before.next.next;
-
             if (before.next == null) {
                 last = before;
             }
@@ -100,7 +96,6 @@ public class List<T> {
     public boolean empty() {
         return size == 0;
     }
-
     // get list size
     public int sizeList() {
         return size;
