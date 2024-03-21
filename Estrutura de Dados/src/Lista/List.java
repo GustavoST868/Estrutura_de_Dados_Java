@@ -1,18 +1,20 @@
 package Lista;
 
 //ordered list on elements of type T
-public class List<T> {
+public class List {
 
     // class structure of the node
     private class Node {
+        int  index;
 
         //given to generic T type
-        T data;
+        String data;
         //node type
         Node next;
-        Node(T data) {
+        Node(String data) {
             this.data = data;
             this.next = null;
+            this.index = indexCounter++;
         }
     }
 
@@ -20,29 +22,33 @@ public class List<T> {
     private Node first;
     private Node last;
     private int size;
+    int indexCounter;
 
     //constructor
     public List() {
         this.first = null;
         this.last = null;
         this.size = 0;
+        this.indexCounter = 0;
     }
 
-    // add data to list
-    void add(T data) {
-        Node newNode = new Node(data);
-        if (first == null) {
-            first = newNode;
-            last = newNode;
-        } else {
-            last.next = newNode;
-            last = newNode;
+
+
+    public int getIndexText(String data){
+        int index = 0;
+        Node current = first;
+        while (current != null) {
+            if(data.equals(current.data)){
+                break;
+            }
+            index++;
+            current = current.next;
         }
-        size++;
+        return index;
     }
 
     // function to add data at specific place
-    public void addSpecificPlace(T data, int index) {
+    public void addSpecificPlace(String data, int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
         }
@@ -85,7 +91,7 @@ public class List<T> {
     }
 
     // get node
-    public T get(int index) {
+    public String get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
         }
@@ -99,6 +105,19 @@ public class List<T> {
     // get list size
     public int sizeList() {
         return size;
+    }
+
+    // add data to list
+    public void addData(String data) {
+        Node newNode = new Node(data);
+        if (first == null) {
+            first = newNode;
+            last = newNode;
+        } else {
+            last.next = newNode;
+            last = newNode;
+        }
+        size++;
     }
 
     // clear the list
@@ -121,7 +140,7 @@ public class List<T> {
     public void print() {
         Node current = first;
         while (current != null) {
-            System.out.println(current.data + "");
+            System.out.println("index:"+current.index+" data:"+current.data + "");
             current = current.next;
         }
         System.out.println();
