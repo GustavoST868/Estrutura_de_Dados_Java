@@ -1,7 +1,9 @@
 package Lista;
 
+//ordered list on elements of type T
 public class List<T> {
 
+    // class structure of the node
     private class Node {
         T data;
         Node next;
@@ -12,17 +14,19 @@ public class List<T> {
         }
     }
 
+    //attributes
     private Node first;
     private Node last;
     private int size;
 
+    //constructor
     public List() {
         this.first = null;
         this.last = null;
         this.size = 0;
     }
 
-    // Add data to list
+    // add data to list
     void add(T data) {
         Node newNode = new Node(data);
         if (first == null) {
@@ -35,7 +39,7 @@ public class List<T> {
         size++;
     }
 
-    // Function to add data at specific place
+    // function to add data at specific place
     public void addSpecificPlace(T data, int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
@@ -45,9 +49,11 @@ public class List<T> {
             Node newNode = new Node(data);
             newNode.next = first;
             first = newNode;
+
             if (size == 0) {
                 last = newNode;
             }
+
         } else {
             Node newNode = new Node(data);
             Node before = getNode(index - 1);
@@ -57,7 +63,7 @@ public class List<T> {
         size++;
     }
 
-    // Function to remove a node from the list
+    // function to remove a node from the list
     public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
@@ -65,20 +71,24 @@ public class List<T> {
 
         if (index == 0) {
             first = first.next;
+
             if (first == null) {
                 last = null;
             }
+
         } else {
             Node before = getNode(index - 1);
             before.next = before.next.next;
+
             if (before.next == null) {
                 last = before;
             }
+
         }
         size--;
     }
 
-    // Get node
+    // get node
     public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
@@ -86,24 +96,24 @@ public class List<T> {
         return getNode(index).data;
     }
 
-    // Check if the list is empty
+    // check if the list is empty
     public boolean empty() {
         return size == 0;
     }
 
-    // Get list size
+    // get list size
     public int sizeList() {
         return size;
     }
 
-    // Clear the list
+    // clear the list
     public void clear() {
         first = null;
         last = null;
         size = 0;
     }
 
-    // Main method to obtain the data
+    // main method to obtain the data
     private Node getNode(int index) {
         Node current = first;
         for (int i = 0; i < index; i++) {
@@ -112,7 +122,7 @@ public class List<T> {
         return current;
     }
 
-    // Print data
+    // print data
     public void print() {
         Node current = first;
         while (current != null) {
