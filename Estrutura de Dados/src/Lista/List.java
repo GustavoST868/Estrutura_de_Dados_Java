@@ -33,10 +33,11 @@ public class List {
     }
 
 
-
+    //get the index based on the text
     public int getIndexText(String data){
         int index = 0;
         Node current = first;
+        //loop to go through the nodes
         while (current != null) {
             if(data.equals(current.data)){
                 break;
@@ -46,6 +47,7 @@ public class List {
         }
         return index;
     }
+
 
     // function to add data at specific place
     public void addSpecificPlace(String data, int index) {
@@ -85,7 +87,6 @@ public class List {
             if (before.next == null) {
                 last = before;
             }
-
         }
         size--;
     }
@@ -127,6 +128,20 @@ public class List {
         size = 0;
     }
 
+    //search data
+    public boolean search(String data_search){
+        Node current = first;
+        //loop to go through the nodes
+        while (current != null) {
+            if(current.data.equals(data_search)){
+                return true;
+            }
+            System.out.println("index:"+current.index+" data:"+current.data + "");
+            current = current.next;
+        }
+        return false;
+    }
+
     // main method to obtain the data
     private Node getNode(int index) {
         Node current = first;
@@ -139,6 +154,7 @@ public class List {
     // print data
     public void print() {
         Node current = first;
+        //loop to go through the nodes
         while (current != null) {
             System.out.println("index:"+current.index+" data:"+current.data + "");
             current = current.next;
