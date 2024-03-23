@@ -92,8 +92,10 @@ public class Main {
                     System.out.println("===================================================");
 
                     break;
+                    //stack
                 case 2:
                     break;
+                    //binary tree
                 case 3:
                     break;
                 default:
