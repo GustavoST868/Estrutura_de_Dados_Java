@@ -34,7 +34,7 @@ public class Main {
                         System.out.println("1. Adicionar");
                         System.out.println("2. Pesquisar");
                         System.out.println("3. Deletar");
-                        System.out.println("4. Atualizar");
+                        System.out.println("4. Editar");
                         System.out.println("5. Mostrar");
                         System.out.println("Escolha uma opção:");
 
@@ -74,7 +74,14 @@ public class Main {
 
                             //update
                             case 4:
+                                //get data
+                                System.out.println("Informe o dado a ser editado:");
+                                String data_edit = scanner.nextLine();
 
+                                System.out.println("Informe o novo dado:");
+                                String data_ = scanner.nextLine();
+
+                                list.edit(data_edit,data_);
                                 break;
 
                             //print

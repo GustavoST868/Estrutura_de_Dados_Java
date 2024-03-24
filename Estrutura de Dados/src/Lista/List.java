@@ -1,5 +1,7 @@
 package Lista;
 
+import Pilha.Stack;
+
 //ordered list on elements of type T
 public class List {
 
@@ -97,6 +99,18 @@ public class List {
             throw new IndexOutOfBoundsException("Indice fora dos limites da lista");
         }
         return getNode(index).data;
+    }
+
+    //function to edit element
+    public void edit(String data,String newElement){
+        Node current = first;
+        while (current!=null){
+            if(current.data.equals(data)){
+                current.data = newElement;
+                return;
+            }
+            current = current.next;
+        }
     }
 
     // check if the list is empty

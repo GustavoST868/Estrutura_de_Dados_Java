@@ -40,6 +40,18 @@ public class Stack {
         size++;
     }
 
+    //edit data
+    public void edit(String data,String newElement){
+        Node current = top;
+        while(current!=null){
+            if(current.data.equals(data)){
+                current.data = newElement;
+                return;
+            }
+            current = current.next;
+        }
+    }
+
     //unstack an element
     public void unstack(){
         top = top.next;
