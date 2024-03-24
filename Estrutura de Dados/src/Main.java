@@ -29,6 +29,7 @@ public class Main {
                     //loop that keeps the user in the module
                     while (!options.equals("s")) {
 
+
                         //module options menu
                         System.out.println("Menu de opções:");
                         System.out.println("1. Adicionar");
@@ -105,6 +106,7 @@ public class Main {
                 case 2:
                     System.out.println("====================Stack Module====================");
                     Stack stack = new Stack();
+
                     System.out.println("====================================================");
                     break;
                     //binary tree

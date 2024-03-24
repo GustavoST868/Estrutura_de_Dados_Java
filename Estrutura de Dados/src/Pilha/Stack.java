@@ -42,34 +42,51 @@ public class Stack {
 
     //edit data
     public void edit(String data,String newElement){
-        Node current = top;
-        while(current!=null){
-            if(current.data.equals(data)){
-                current.data = newElement;
-                return;
+        if(isEmpty()){
+            System.out.println("A lista está vazia");
+        }else{
+            Node current = top;
+            while(current!=null){
+                if(current.data.equals(data)){
+                    current.data = newElement;
+                    return;
+                }
+                current = current.next;
             }
-            current = current.next;
         }
     }
 
     //unstack an element
     public void unstack(){
-        top = top.next;
-        size--;
+        if(isEmpty()){
+            System.out.println("A lista está vazia");
+        }else {
+            top = top.next;
+            size--;
+        }
     }
 
     //get data
     public String getTop(){
-        return top.data;
+        if(isEmpty()){
+            System.out.println("A lista está vazia");
+            return "";
+        }else {
+            return top.data;
+        }
     }
 
     //print
     public void print(){
-        System.out.println("Elementos da pilha:");
-        Node current = top;
-        while(null != current){
-            System.out.println("Index = "+current.index+" data = "+current.data);
-            current = current.next;
+        if(isEmpty()){
+            System.out.println("A lista está vazia");
+        }else {
+            System.out.println("Elementos da pilha:");
+            Node current = top;
+            while (null != current) {
+                System.out.println("Index = " + current.index + " data = " + current.data);
+                current = current.next;
+            }
         }
     }
 }
