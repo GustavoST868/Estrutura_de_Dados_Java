@@ -1,5 +1,7 @@
 //used libraries
 import Lista.List;
+import Pilha.Stack;
+
 import java.util.Scanner;
 
 public class Main {
@@ -94,6 +96,9 @@ public class Main {
                     break;
                     //stack
                 case 2:
+                    System.out.println("====================Stack Module====================");
+                    Stack stack = new Stack();
+                    System.out.println("====================================================");
                     break;
                     //binary tree
                 case 3:

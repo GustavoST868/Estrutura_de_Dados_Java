@@ -26,4 +26,38 @@ public class Stack {
             this.index = indexCounter++;
         }
     }
+
+    //checks if the stack is empty
+    public boolean isEmpty(){
+        return (top==null);
+    }
+
+    //method for adding an element
+    public  void addStack(String data){
+        Node newNode = new Node(data);
+        newNode.next = top;
+        top = newNode;
+        size++;
+    }
+
+    //unstack an element
+    public void unstack(){
+        top = top.next;
+        size--;
+    }
+
+    //get data
+    public String getTop(){
+        return top.data;
+    }
+
+    //print
+    public void print(){
+        System.out.println("Elementos da pilha:");
+        Node current = top;
+        while(null != current){
+            System.out.println("Index = "+current.index+" data = "+current.data);
+            current = current.next;
+        }
+    }
 }
