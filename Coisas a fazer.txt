@@ -1,1 +1,0 @@
-Fazer comentarios no algoritmo de lista focando no embasamento teorico e aprendizagem da logica da estrutura.
