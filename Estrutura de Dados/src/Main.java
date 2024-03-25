@@ -13,7 +13,6 @@ public class Main {
             System.out.println("Escolha qual estrutura deseja utilizar : ");
             System.out.println("1. Lista");
             System.out.println("2. Pilha");
-            System.out.println("3. Árvore Binária");
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -106,11 +105,54 @@ public class Main {
                 case 2:
                     System.out.println("====================Stack Module====================");
                     Stack stack = new Stack();
+                    int choice;
+                    do {
+                        System.out.println("\nMenu:");
+                        System.out.println("1. Adicionar elemento à pilha");
+                        System.out.println("2. Editar elemento na pilha");
+                        System.out.println("3. Remover elemento da pilha");
+                        System.out.println("4. Exibir elemento no topo da pilha");
+                        System.out.println("5. Exibir todos os elementos da pilha");
+                        System.out.println("6. Sair");
+                        System.out.print("Escolha uma opção: ");
+                        choice = scanner.nextInt();
+
+                        switch (choice) {
+                            case 1:
+                                System.out.print("Digite o elemento a ser adicionado à pilha: ");
+                                scanner.nextLine(); // Consume newline
+                                String elementToAdd = scanner.nextLine();
+                                stack.addStack(elementToAdd);
+                                System.out.println("Elemento adicionado com sucesso!");
+                                break;
+                            case 2:
+                                System.out.print("Digite o elemento a ser editado na pilha: ");
+                                scanner.nextLine(); // Consume newline
+                                String elementToEdit = scanner.nextLine();
+                                System.out.print("Digite o novo valor para o elemento: ");
+                                String newElementValue = scanner.nextLine();
+                                stack.edit(elementToEdit, newElementValue);
+                                System.out.println("Elemento editado com sucesso!");
+                                break;
+                            case 3:
+                                stack.unstack();
+                                System.out.println("Elemento removido do topo da pilha!");
+                                break;
+                            case 4:
+                                System.out.println("Elemento no topo da pilha: " + stack.getTop());
+                                break;
+                            case 5:
+                                stack.print();
+                                break;
+                            case 6:
+                                System.out.println("Encerrando o programa.");
+                                break;
+                            default:
+                                System.out.println("Opção inválida. Por favor, escolha novamente.");
+                        }
+                    } while (choice != 6);
 
                     System.out.println("====================================================");
-                    break;
-                    //binary tree
-                case 3:
                     break;
                 default:
                     System.out.println("Opção inválida");
